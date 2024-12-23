@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "ROIC Transcript Indexer",
+  "version": "1.0",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "downloads",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.roic.ai/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [{
+    "matches": ["https://www.roic.ai/*"],
+    "js": ["content.js"],
+    "run_at": "document_idle"
+  }]
+}
